@@ -1,0 +1,30 @@
+public void render(Graphics g) {
+		int xstart = Camera.x/16;
+		int ystart = Camera.y/16;
+		
+	    if (xstart < 0) xstart = 0;
+	    if (ystart < 0) ystart = 0;
+	    if (xstart >= WIDTH) xstart = WIDTH - 1;
+	    if (ystart >= HEIGHT) ystart = HEIGHT - 1;
+
+		
+		int xfinal = xstart + (Game.WIDTH / 16);
+		int yfinal = ystart + (Game.HEIGHT / 16);
+		
+		if (xfinal < 0) xfinal = 0;
+	    if (yfinal < 0) yfinal = 0;
+	    if (xfinal >= WIDTH) xfinal = WIDTH - 1;
+	    if (yfinal >= HEIGHT) yfinal = HEIGHT - 1;
+		
+
+		
+		
+		for(int xx = xstart; xx <= xfinal; xx++) {
+			for(int yy = ystart; yy <= yfinal; yy++) {
+				Tile tile = tiles[xx + (yy*WIDTH)];
+				tile.render(g);
+			}
+		}
+		
+	}
+}
